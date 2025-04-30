@@ -57,7 +57,7 @@ def main():
         bet = get_bet_amount()
         total_bet = bet * lines
         if total_bet > balance:
-            print(f'You cannot bet more than your balance amount. Your current balance is {balance}')
+            print(f'You cannot bet more than your balance amount. Your current balance is ${balance}')
         else:
             break
 
