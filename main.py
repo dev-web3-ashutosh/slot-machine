@@ -51,7 +51,8 @@ def get_bet_amount():
 def main():
     balance = deposit()
     lines = get_number_of_lines()
-    print(f'Balance = {balance} and Number of Lines = {lines}')
+    bet = get_bet_amount()
+    print(f'Deposit = {balance} | Number of Lines = {lines} | Bet Amount = {bet}')
 
 if __name__ == "__main__":
     main()
