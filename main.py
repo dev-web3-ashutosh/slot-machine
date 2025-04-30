@@ -5,6 +5,9 @@ MAX_LINES = 3
 MIN_BET = 1
 MAX_BET = 1000
 
+ROWS = 3
+COLS = 3
+
 SYMBOL_COUNT = {
     "A": 2,
     "B": 4,
