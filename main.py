@@ -75,7 +75,7 @@ def check_winnings(columns, lines, bet, values):
 def deposit():
     while True:
         amount = input("How much would you like to deposit? $")
-        # isdigit() returns True if the input string is a digit >= 0
+        # check amount is a valid int number. isdigit() returns True if the input string is a digit >= 0
         if amount.isdigit():
             amount = int(amount)
             if amount > 0:
@@ -119,6 +119,7 @@ def get_bet_amount():
 
     return bet
 
+'''
 def spin(bal):
     balance = bal
     while True:
@@ -142,13 +143,81 @@ def spin(bal):
             slots = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
             print_slot_machine(slots)
             winnings, winning_lines = check_winnings(slots, lines, bet, SYMBOL_VALUES)
-            new_balance = balance - total_bet + winnings
-            print(f"You won ${winnings}. New Balance (Deposit - Total Bet + Winnings) = ${new_balance}")
+            # new_balance = balance - total_bet + winnings
+            # print(f"You won ${winnings}. New Balance (Deposit - Total Bet + Winnings) = ${new_balance}")
+            print(f"You won ${winnings}.")
             print(f"You won on line(s): ", *winning_lines)
+            return winnings - total_bet
+'''
+
+'''
+def spin(balance):
+    balance = balance
+    # check that total bet is not greater than balance
+    while True:
+        lines = get_number_of_lines()
+        bet = get_bet_amount()
+        total_bet = bet * lines
+        if total_bet > balance:
+            print(f'You cannot bet more than your balance amount. Your current balance is ${balance}')
+        else:
+            break
+
+    print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet = ${total_bet}')
+
+    slots = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
+    print_slot_machine(slots)
+    winnings, winning_lines = check_winnings(slots, lines, bet, SYMBOL_VALUES)
+    print(f"You won ${winnings}.")
+    print(f"You won on line(s): ", *winning_lines)
+    return winnings - total_bet
+'''
+
+
+def spin(balance):
+    balance = balance
+    user_input = ""
+    # check that total bet is not greater than balance
+    while True:
+        lines = get_number_of_lines()
+        bet = get_bet_amount()
+        total_bet = bet * lines
+        if total_bet > balance:
+            print(f'You cannot bet more than your balance amount. Your current balance is ${balance}')
+            while True:
+                user_input = input(f"d to deposit, q to quit ")
+                if user_input == "d":
+                    balance += deposit()
+                    break
+                elif user_input == "q":
+                    break
+                else:
+                    print("Please enter a valid option")
+        else:
+            break
+
+    print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet = ${total_bet}')
+
+    slots = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
+    print_slot_machine(slots)
+    winnings, winning_lines = check_winnings(slots, lines, bet, SYMBOL_VALUES)
+    print(f"You won ${winnings}.")
+    print(f"You won on line(s): ", *winning_lines)
+    return winnings - total_bet
+
 
 def main():
-    balance = 100 #deposit()
-    spin(balance)
+    balance = deposit()
+    # spin(balance)
+    while True:
+        print(f"Your current balance is ${balance}")
+        choice = input("Enter to play, q to quit ")
+        if choice == "q":
+            break
+        balance += spin(balance)
+
+    print(f"Your new balance is ${balance}")
+
 
 
 if __name__ == "__main__":
