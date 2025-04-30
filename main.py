@@ -15,6 +15,7 @@ SYMBOL_COUNT = {
     "D": 8
 }
 
+# generate slot machine with values
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
     for symbol, symbol_count in symbols.items():
@@ -32,6 +33,8 @@ def get_slot_machine_spin(rows, cols, symbols):
             column.append(value)
 
         columns.append(column)
+
+    return columns
 
 # take user input for amount deposited
 def deposit():
