@@ -119,9 +119,10 @@ def get_bet_amount():
 
     return bet
 
-def spin():
+def spin(bal):
+    balance = bal
     while True:
-        choice = input("Hit enter to continue, q to quit")
+        choice = input("Hit enter to continue, q to quit ")
         if choice == "q":
             break
         else:
@@ -147,6 +148,7 @@ def spin():
 
 def main():
     balance = 100 #deposit()
+    spin(balance)
 
 
 if __name__ == "__main__":
