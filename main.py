@@ -15,6 +15,7 @@ SYMBOL_COUNT = {
     "D": 8
 }
 
+def get_slot_machine_spin(rows, cols, symbols):
 
 
 # take user input for amount deposited
@@ -33,6 +34,7 @@ def deposit():
 
     return amount
 
+# take user input for number of lines to bet on
 def get_number_of_lines():
     while True:
         lines = input("How many lines do you want to bet on (1-" + str(MAX_LINES) + ")? ")
@@ -48,6 +50,7 @@ def get_number_of_lines():
 
     return lines
 
+# take user input for amount to bet on each line
 def get_bet_amount():
     while True:
         bet = input("How much do you want to bet between ($" +str(MIN_BET) +" - $" + str(MAX_BET) + ") on each line? $")
