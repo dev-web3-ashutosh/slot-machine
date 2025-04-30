@@ -15,6 +15,13 @@ SYMBOL_COUNT = {
     "D": 8
 }
 
+SYMBOL_VALUES = {
+    "A": 5,
+    "B": 4,
+    "C": 3,
+    "D": 2
+}
+
 # generate slot machine with values
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
@@ -47,6 +54,20 @@ def print_slot_machine(columns):
                 print(column[row], end = "")
 
         print()
+
+# check winnings
+def check_winnings(columns, lines, bet, values):
+    winnings = 0
+    for line in range(lines):
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                break
+        else:
+            winnings += values[symbol] * bet
+
+    return winnings
 
 # take user input for amount deposited
 def deposit():
