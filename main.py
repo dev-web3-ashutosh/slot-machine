@@ -16,7 +16,11 @@ SYMBOL_COUNT = {
 }
 
 def get_slot_machine_spin(rows, cols, symbols):
-
+    all_symbols = []
+    for symbol, symbol_count in symbols.items():
+        # _ in python is an anonymous variable
+        for _ in range(symbol_count):
+            all_symbols.append(symbol)
 
 # take user input for amount deposited
 def deposit():
