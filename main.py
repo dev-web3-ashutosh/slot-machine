@@ -111,8 +111,8 @@ def main():
 
     print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet = ${total_bet}')
 
-    cols = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
-    print_slot_machine(cols)
+    slots = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
+    print_slot_machine(slots)
 
 if __name__ == "__main__":
     main()
