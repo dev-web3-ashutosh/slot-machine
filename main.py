@@ -1,8 +1,18 @@
 import random
 
 MAX_LINES = 3
+
 MIN_BET = 1
 MAX_BET = 1000
+
+SYMBOL_COUNT = {
+    "A": 2,
+    "B": 4,
+    "C": 6,
+    "D": 8
+}
+
+
 
 # take user input for amount deposited
 def deposit():
