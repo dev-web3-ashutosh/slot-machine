@@ -36,6 +36,18 @@ def get_slot_machine_spin(rows, cols, symbols):
 
     return columns
 
+# print values of slot machine
+def print_slot_machine(columns):
+    # transpose the columns to print it like rows
+    for row in range(len(columns[0])): # gets num of elements in first column
+        for i, column in enumerate(columns):
+            if i != len(columns) - 1:
+                print(column[row], end = " | ")
+            else:
+                print(column[row], end = "")
+
+        print()
+
 # take user input for amount deposited
 def deposit():
     while True:
@@ -98,6 +110,9 @@ def main():
             break
 
     print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet = ${total_bet}')
+
+    cols = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
+    print_slot_machine(cols)
 
 if __name__ == "__main__":
     main()
