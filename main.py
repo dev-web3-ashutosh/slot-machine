@@ -53,7 +53,7 @@ def main():
     lines = get_number_of_lines()
     bet = get_bet_amount()
     total_bet = bet * lines
-    print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet Amount = ${total_bet}')
+    print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet = ${total_bet}')
 
 if __name__ == "__main__":
     main()
