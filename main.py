@@ -119,27 +119,35 @@ def get_bet_amount():
 
     return bet
 
-def main():
-    balance = deposit()
-    lines = get_number_of_lines()
-
-    # check that total bet is less than or equal to balance
+def spin():
     while True:
-        bet = get_bet_amount()
-        total_bet = bet * lines
-        if total_bet > balance:
-            print(f'You cannot bet more than your balance amount. Your current balance is ${balance}')
-        else:
+        choice = input("Hit enter to continue, q to quit")
+        if choice == "q":
             break
+        else:
+            lines = 3  # get_number_of_lines()
 
-    print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet = ${total_bet}')
+            # check that total bet is less than or equal to balance
+            while True:
+                bet = 10  # get_bet_amount()
+                total_bet = bet * lines
+                if total_bet > balance:
+                    print(f'You cannot bet more than your balance amount. Your current balance is ${balance}')
+                else:
+                    break
 
-    slots = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
-    print_slot_machine(slots)
-    winnings, winning_lines = check_winnings(slots, lines, bet, SYMBOL_VALUES)
-    new_balance = balance - total_bet + winnings
-    print(f"You won ${winnings}. New Balance (Deposit - Total Bet + Winnings) = ${new_balance}")
-    print(f"You won on line(s): ", *winning_lines)
+            print(f'Balance = ${balance} | Number of Lines = {lines} | Total Bet = ${total_bet}')
+
+            slots = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
+            print_slot_machine(slots)
+            winnings, winning_lines = check_winnings(slots, lines, bet, SYMBOL_VALUES)
+            new_balance = balance - total_bet + winnings
+            print(f"You won ${winnings}. New Balance (Deposit - Total Bet + Winnings) = ${new_balance}")
+            print(f"You won on line(s): ", *winning_lines)
+
+def main():
+    balance = 100 #deposit()
+
 
 if __name__ == "__main__":
     main()
