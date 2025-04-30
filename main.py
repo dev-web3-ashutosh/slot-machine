@@ -138,7 +138,7 @@ def main():
     print_slot_machine(slots)
     winnings, winning_lines = check_winnings(slots, lines, bet, SYMBOL_VALUES)
     print(f"You won ${winnings}")
-    print(f"You won on lines: ", *winning_lines)
+    print(f"You won on line(s): ", *winning_lines)
 
 if __name__ == "__main__":
     main()
