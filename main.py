@@ -14,7 +14,7 @@ def deposit():
         else:
             print("Please enter a valid amount.")
 
-    return amo
+    return amount
 
 def get_number_of_lines():
     while True:
@@ -33,9 +33,8 @@ def get_number_of_lines():
 
 def main():
     balance = deposit()
-
-    return balance
+    lines = get_number_of_lines()
+    print(f'Balance = {balance} and Number of Lines = {lines}')
 
 if __name__ == "__main__":
-    result = main()
-    print(f'Deposited amount = {result}')
+    main()
