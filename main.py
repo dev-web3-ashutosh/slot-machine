@@ -2,7 +2,7 @@
 def deposit():
     while True:
         amount = input("How much would you like to deposit?")
-        # check if the input string is a positive digit
+        # isdigit() returns True if the input string is a digit >= 0
         if amount.isdigit():
             amount = int(amount)
             if amount > 0:
@@ -10,7 +10,10 @@ def deposit():
             else:
                 print("Amount must be greater than 0.")
         else:
-            print("Amount must be greater than 0")
+            print("Please enter a valid amount.")
 
     return amount
 
+if __name__ == "__main__":
+    result = deposit()
+    print(f'Deposited amount = {result}')
