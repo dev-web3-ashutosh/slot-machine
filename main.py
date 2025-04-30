@@ -137,7 +137,8 @@ def main():
     slots = get_slot_machine_spin(ROWS, COLS, SYMBOL_COUNT)
     print_slot_machine(slots)
     winnings, winning_lines = check_winnings(slots, lines, bet, SYMBOL_VALUES)
-    print(f"You won ${winnings}")
+    new_balance = balance - total_bet + winnings
+    print(f"You won ${winnings}. New Balance (Deposit - Total Bet + Winnings) = ${new_balance}")
     print(f"You won on line(s): ", *winning_lines)
 
 if __name__ == "__main__":
