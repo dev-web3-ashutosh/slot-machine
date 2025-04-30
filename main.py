@@ -25,7 +25,7 @@ def get_number_of_lines():
             if 1 <= lines <= MAX_LINES:
                 break
             else:
-                print("Lines must be between 1 and 3")
+                print(f"Lines must be between 1 and {MAX_LINES}")
         else:
             print("Please enter a valid number of lines.")
 
