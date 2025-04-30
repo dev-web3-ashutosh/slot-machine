@@ -1,4 +1,6 @@
 MAX_LINES = 3
+MIN_BET = 1
+MAX_BET = 1000
 
 # take user input for amount deposited
 def deposit():
